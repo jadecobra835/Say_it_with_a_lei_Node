@@ -10,7 +10,9 @@ const cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(express.static("."));
-app.use(cors());
+app.use(cors({
+    origin: 'localhost:3000/payment'
+}));
 
 app.post('/create-intent', cors(), async (req, res, next) => {
     const model = req.body;
