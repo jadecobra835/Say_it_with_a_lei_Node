@@ -11,7 +11,9 @@ const cors = require("cors");
 app.use(bodyParser.json());
 app.use(express.static("."));
 app.use(cors({
-    origin: ['*', 'http://localhost:3000/payment', 'https://xjj-say-it-with-a-lei-34e7166cb08e.herokuapp.com/payment']
+    origin: [ 'http://localhost:3000', 'https://xjj-say-it-with-a-lei-34e7166cb08e.herokuapp.com'],
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.post('/create-intent', cors(), async (req, res, next) => {
